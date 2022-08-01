@@ -1,18 +1,48 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
+  <div class="home-container">
+    <el-radio-group v-model="menu" size="large" @change="chooseMenu">
+      <el-radio-button
+        v-for="menu in menuList"
+        :key="menu"
+        :label="menu.label"
+        >{{ menu.name }}</el-radio-button
+      >>
+    </el-radio-group>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
+<script lang="ts" setup>
+import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
-export default defineComponent({
-  name: "HomeView",
-  components: {
-    HelloWorld,
+const router = useRouter();
+
+const menuList = reactive([
+  {
+    name: "3D地球",
+    label: "3DEarth",
   },
-});
+]);
+const menu = ref("");
+
+const chooseMenu = (menu: string) => {
+  let pathName = "";
+  switch (menu) {
+    case "3DEarth":
+      pathName = "earth";
+      break;
+  }
+
+  router.push({ name: pathName });
+};
 </script>
+
+<style lang="scss" scoped>
+.home-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</style>

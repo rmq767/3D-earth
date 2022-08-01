@@ -1,24 +1,5 @@
-# vue-demo
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### 使用Echarts和Echarts-gl实现3D地球
+- 3D/2D切换
+- 背景切换
+- 柱状图/热力图切换
+- 颜色自定义
